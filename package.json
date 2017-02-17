@@ -1,0 +1,13 @@
+{
+  "name": "tfs-checkin-start-build-machine",
+  "version": "0.0.1",
+  "description": "start a build machine from tfs on checkin",
+  "main": "index.js",
+  "author": "EricoGR",
+  "license": "ISC",
+  "dependencies": {
+    "azure-arm-compute": "^0.19.1",
+    "bluebird": "^3.4.6",
+    "httpntlm": "^1.7.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+	"azure": {
+		"clientId": "00000000-0000-0000-0000-000000000000",
+		"secret": "",
+		"domain": "xxxxxxxxxx.onmicrosoft.com",
+		"subscriptionId": "00000000-0000-0000-0000-000000000000",
+		"virtualMachine": {
+			"resourceGroupName": "",
+			"vmName": ""
+		}
+	},
+	"tfs": {
+		"projectUrl": "http://tfsaddress:1234/tfs/Default",
+		"username": "name",
+		"password": "pass",
+		"workstation": "workstation",
+		"domain": "yourdomain",
+		"startDelay": 180000,
+		"build": {
+			"id": 1,
+			"sourceBranch": "$/main",
+			"parameters": "{\"system.debug\":\"false\",\"BuildConfiguration\":\"release\",\"BuildPlatform\":\"any cpu\"}"
+		}
+	}
+
+}
