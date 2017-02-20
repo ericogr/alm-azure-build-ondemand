@@ -36,7 +36,7 @@ module.exports = function(context, data) {
         };
     }
     else if("eventType" in data && data.eventType === "build.complete") {
-
+	context.log("Pronto para desligar a máquina...");
     }
     else {
         context.log(`objeto invalido: ${data.eventType}`);
