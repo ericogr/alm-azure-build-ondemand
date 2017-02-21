@@ -6,14 +6,32 @@ module.exports.start = (parameters, callback) => {
         if (err) {
             return callback(err, null);
         }
-    
+
         let client = new computeAzureServiceClient(credentials, parameters.subscriptionId);
 
         client.virtualMachines.start(parameters.virtualMachine.resourceGroupName, parameters.virtualMachine.vmName, function(err, result) {
             if (err) {
                 return callback(err, null);
             }
-    
+
+            return callback(null, result);
+        });
+    });
+}
+
+module.exports.stop = (parameters, callback) => {
+    msRestAzure.loginWithServicePrincipalSecret(parameters.clientId, parameters.secret, parameters.domain, function(err, credentials) {
+        if (err) {
+            return callback(err, null);
+        }
+
+        let client = new computeAzureServiceClient(credentials, parameters.subscriptionId);
+
+        client.virtualMachines.powerOff(parameters.virtualMachine.resourceGroupName, parameters.virtualMachine.vmName, function(err, result) {
+            if (err) {
+                return callback(err, null);
+            }
+
             return callback(null, result);
         });
     });

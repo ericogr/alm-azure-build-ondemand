@@ -36,7 +36,12 @@ module.exports = function(context, data) {
         };
     }
     else if("eventType" in data && data.eventType === "build.complete") {
-	context.log("Pronto para desligar a máquina...");
+	     context.log("Iniciando desligamento da máquina virtual...");
+       AzureVirtualMachine.stopAsync(parameters.azure)
+           .then((ret) => {
+               context.log(`Máquina virtual ${parameters.azure.virtualMachine.vmName} desligada!`);
+               return ret;
+           });
     }
     else {
         context.log(`objeto invalido: ${data.eventType}`);
