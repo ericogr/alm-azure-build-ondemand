@@ -16,14 +16,16 @@ module.exports = function(context, data) {
                 context.log(`iniciando o build em ${parameters.tfs.startDelay/1000} segundos...`);
                 return ret;
             })
-            .delay(parameters.tfs.startDelay)
+            //.delay(parameters.tfs.startDelay)
             .then((ret) => {
                 context.log("Iniciando build no TFS...");
 
                 return TFSBuildOnPremise.startAsync(parameters.tfs);
             })
             .then((ret) => {
-                context.log(`Build iniciado com sucesso: ${ret.buildNumber}`);
+                context.log(`retorno do start do build no tfs`);
+                context.log(ret);
+                context.log(`Build iniciado com sucesso: ${ret.buildNumber.buildNumber}`);
             })
             .catch((err) => {
                 context.log("Erro: " + err);

@@ -19,7 +19,7 @@ module.exports.start = (parameters, callback) => {
     });
 }
 
-module.exports.stop = (parameters, callback) => {
+module.exports.deallocate = (parameters, callback) => {
     msRestAzure.loginWithServicePrincipalSecret(parameters.clientId, parameters.secret, parameters.domain, function(err, credentials) {
         if (err) {
             return callback(err, null);
@@ -27,7 +27,7 @@ module.exports.stop = (parameters, callback) => {
 
         let client = new computeAzureServiceClient(credentials, parameters.subscriptionId);
 
-        client.virtualMachines.powerOff(parameters.virtualMachine.resourceGroupName, parameters.virtualMachine.vmName, function(err, result) {
+        client.virtualMachines.deallocate(parameters.virtualMachine.resourceGroupName, parameters.virtualMachine.vmName, function(err, result) {
             if (err) {
                 return callback(err, null);
             }

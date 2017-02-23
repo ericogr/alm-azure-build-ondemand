@@ -16,11 +16,11 @@ module.exports.start = (parameters, callback) => {
 	    }
 	}, function (err, res) {
 	    if (err) {
-			return callback(err, null);
+				return callback(err, null);
 	    }
-	
+
 	    let body = JSON.parse(res.body);
-	
-	    return callback(null, {"buildNumber": body.buildNumber});
+
+	    return callback(null, {"buildNumber": body});
 	});
 }
