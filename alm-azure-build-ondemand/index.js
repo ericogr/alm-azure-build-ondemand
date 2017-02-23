@@ -16,7 +16,7 @@ module.exports = function(context, data) {
                 context.log(`iniciando o build em ${parameters.tfs.startDelay/1000} segundos...`);
                 return ret;
             })
-            //.delay(parameters.tfs.startDelay)
+            .delay(parameters.tfs.startDelay)
             .then((ret) => {
                 context.log("Iniciando build no TFS...");
 
