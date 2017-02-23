@@ -8,24 +8,24 @@ Ao realizar check-in, será disparado um gatilho pelo TFS (Service Hooks) ao ser
 Ao concluir o build, o TFS dispara outro gatinho (Service Hooks) ao serviço "Function" do Azure para desligar (deallocate) a máquina.
 
 ## Requisitos
- 1. Conta Azure
- 2. TFS 2015 ou mais atual
- 3. Permissão na conta azure e TFS para criação de hooks, serviços, etc
+ * Conta Azure
+ * TFS 2015 ou mais atual
+ * Permissão na conta azure e TFS para criação de hooks, serviços, etc
 
 ## Azure
 
 ### Virtual Machine
- 1. Prapare sua VM instalando os requisitos necessários para compilar a aplicação
- 2. Instale o Agente de build do tfs
- 3. Configure o agente de build
+ * Prapare sua VM instalando os requisitos necessários para compilar a aplicação
+ * Instale o Agente de build do tfs
+ * Configure o agente de build
 
 ### Function
- 1. Criar um grupo de recursos "build-poc"
- 2. Criar o Serviço de aplicativos do tipo "Aplicativo de funções" (na busca digite função)
-  2.1 Nomear p nome do aplicativo para "tfs-build-machine"
-  2.2 Associar com o grupo de recursos "build-poc" (a criação pode demorar alguns instantes)
- 3. Configurar a integração contínua apontando para este repositório github
- 4. Abrir o arquivo alm-azure-build-ondemand/parameters.js e ajustar de acordo com seu ambiente
+ * Criar um grupo de recursos "build-poc"
+ * Criar o Serviço de aplicativos do tipo "Aplicativo de funções" (na busca digite função)
+  * Nomear p nome do aplicativo para "tfs-build-machine"
+  * Associar com o grupo de recursos "build-poc" (a criação pode demorar alguns instantes)
+ * Configurar a integração contínua apontando para este repositório github
+ * Abrir o arquivo alm-azure-build-ondemand/parameters.js e ajustar de acordo com seu ambiente
  
 Obs: Os nomes não estão fixos no código, podemos alterar nos parâmetros de ambiente
 
