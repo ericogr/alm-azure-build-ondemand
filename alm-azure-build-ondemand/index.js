@@ -39,7 +39,7 @@ module.exports = function(context, data) {
     }
     else if("eventType" in data && data.eventType === "build.complete") {
 	     context.log("Iniciando desligamento da máquina virtual...");
-       AzureVirtualMachine.deallocate(parameters.azure)
+       AzureVirtualMachine.deallocateAsync(parameters.azure)
            .then((ret) => {
                context.log(`Máquina virtual ${parameters.azure.virtualMachine.vmName} desligada!`);
                return ret;
